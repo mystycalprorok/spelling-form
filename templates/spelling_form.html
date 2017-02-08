@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>
+        Napisać aplikację Django - “liczby pisane słownie”<br><br>
+
+        Aplikacja składa się z:<br>
+        formularza, w którym przekazana jest liczba całkowita<br>
+        widoku, który zwraca zapis słowny danej liczby<br><br>
+
+        Przykład działania:<br>
+        input: 10, output: “dziesięć”<br>
+        input: 67, output: “sześćdziesiąt siedem”<br>
+        input: 11234981, output: “jedenaście milionów dwieście trzydzieści cztery tysiące dziewięćset osiemdziesiąt jeden”<br><br>
+
+        by Adam Pawluczuk, 2017-02-08
+    </p>
+    <hr>
+    <form action="/home/" method="POST">{% csrf_token %}
+        {% for dict in formset.errors %}
+            {% for error in dict.values %}
+                {{ error }}
+            {% endfor %}
+        {% endfor %}
+        <label for="number">Podaj liczbę: </label>
+        <input id="number" type="number" name="number" value="{{ number }}">
+        <input type="submit" value="OK">
+    </form>
+    <div>
+        <h3>Liczba słownie:</h3>
+        {{ spelled_number }}
+    </div>
+
+</body>
+</html>
